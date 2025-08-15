@@ -2869,7 +2869,7 @@
         "kind": 2,
         "importPath": "modes.cpu.cputemp",
         "description": "modes.cpu.cputemp",
-        "peekOfCode": "def get_cpu_temp():\n    \"\"\"Get CPU temperature in Celsius\"\"\"\n    try:\n        temps = psutil.sensors_temperatures()\n        # Prioritize 'coretemp' (common on Linux) and average the readings.\n        if temps and 'coretemp' in temps and temps['coretemp']:\n            core_temps = temps['coretemp']\n            avg_temp = sum(t.current for t in core_temps) / len(core_temps)\n            high_thresh = core_temps[0].high\n            crit_thresh = core_temps[0].critical",
+        "peekOfCode": "def get_cpu_temp():\n    \"\"\"Get CPU temperature in Celsius\"\"\"\n    try:\n        # type: ignore[attr-defined]\n        temps = psutil.sensors_temperatures()\n        # Prioritize 'coretemp' (common on Linux) and average the readings.\n        if temps and 'coretemp' in temps and temps['coretemp']:\n            core_temps = temps['coretemp']\n            avg_temp = sum(t.current for t in core_temps) / len(core_temps)\n            high_thresh = core_temps[0].high",
         "detail": "modes.cpu.cputemp",
         "documentation": {}
     },
@@ -5317,7 +5317,7 @@
         "kind": 6,
         "importPath": "tests.modes.cpu.test_cpu_usage",
         "description": "tests.modes.cpu.test_cpu_usage",
-        "peekOfCode": "class TestCpuUsage(unittest.TestCase):\n    def test_get_cpu_usage_structure_and_values(self):\n        \"\"\"\n        Test the structure and values of the dictionary returned by get_cpu_usage.\n        \"\"\"\n        usage_data = get_cpu_usage()\n        if \"error\" in usage_data:\n            self.assertIsInstance(usage_data[\"error\"], str)\n        else:\n            self.assertIn(\"usage_percent\", usage_data)",
+        "peekOfCode": "class TestCpuUsage(unittest.TestCase):\n    def test_get_cpu_usage_structure_and_values(self):\n        \"\"\"\n        Test the structure and values of the dictionary returned by get_cpu_usage.\n        Handles None and error cases for Pylance compatibility.\n        \"\"\"\n        usage_data = get_cpu_usage()\n        self.assertIsInstance(usage_data, dict)\n        if usage_data is None:\n            self.fail(\"get_cpu_usage() returned None\")",
         "detail": "tests.modes.cpu.test_cpu_usage",
         "documentation": {}
     },

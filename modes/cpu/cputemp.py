@@ -8,6 +8,7 @@ except ImportError:
 def get_cpu_temp():
     """Get CPU temperature in Celsius"""
     try:
+        # type: ignore[attr-defined]
         temps = psutil.sensors_temperatures()
         # Prioritize 'coretemp' (common on Linux) and average the readings.
         if temps and 'coretemp' in temps and temps['coretemp']:

@@ -12,8 +12,12 @@ class TestCpuUsage(unittest.TestCase):
     def test_get_cpu_usage_structure_and_values(self):
         """
         Test the structure and values of the dictionary returned by get_cpu_usage.
+        Handles None and error cases for Pylance compatibility.
         """
         usage_data = get_cpu_usage()
+        self.assertIsInstance(usage_data, dict)
+        if usage_data is None:
+            self.fail("get_cpu_usage() returned None")
         if "error" in usage_data:
             self.assertIsInstance(usage_data["error"], str)
         else:
@@ -21,17 +25,18 @@ class TestCpuUsage(unittest.TestCase):
             self.assertIn("per_core", usage_data)
             self.assertIn("core_count", usage_data)
 
-            self.assertIsInstance(usage_data["usage_percent"], (int, float))
-            self.assertGreaterEqual(usage_data["usage_percent"], 0)
-            self.assertLessEqual(usage_data["usage_percent"], 100)
+            self.assertIsInstance(usage_data.get("usage_percent"), (int, float))
+            self.assertGreaterEqual(usage_data.get("usage_percent", 0), 0)
+            self.assertLessEqual(usage_data.get("usage_percent", 100), 100)
 
-            self.assertIsInstance(usage_data["per_core"], list)
-            if usage_data["per_core"]:
-                self.assertIsInstance(usage_data["per_core"][0], (int, float))
-
-            self.assertIsInstance(usage_data["core_count"], int)
-            self.assertGreater(usage_data["core_count"], 0)
-            self.assertEqual(len(usage_data["per_core"]), usage_data["core_count"])
+            per_core = usage_data.get("per_core")
+            core_count = usage_data.get("core_count")
+            self.assertIsInstance(per_core, list)
+            if per_core and len(per_core) > 0:
+                self.assertIsInstance(per_core[0], (int, float))
+            self.assertIsInstance(core_count, int)
+            self.assertGreater(core_count, 0)
+            self.assertEqual(len(per_core), core_count)
 
 if __name__ == '__main__':
     unittest.main()
