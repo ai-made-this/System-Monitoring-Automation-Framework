@@ -1344,6 +1344,14 @@
         "documentation": {}
     },
     {
+        "label": "update_structure_file",
+        "importPath": "scripts.update_structure",
+        "description": "scripts.update_structure",
+        "isExtraImport": true,
+        "detail": "scripts.update_structure",
+        "documentation": {}
+    },
+    {
         "label": "Tee",
         "kind": 6,
         "importPath": ".venv.Scripts.pywin32_postinstall",

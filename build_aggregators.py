@@ -9,6 +9,10 @@ Scans modes/<category>/ folders, detects .py mini-modules, and creates:
 import os
 import json
 import importlib
+import sys
+
+sys.path.append("scripts")
+from scripts/update_structure import update_structure_file
 from pathlib import Path
 
 BASE_DIR = Path(__file__).parent / "modes"
