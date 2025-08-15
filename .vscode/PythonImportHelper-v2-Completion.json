@@ -2824,7 +2824,7 @@
         "kind": 2,
         "importPath": "modes.cpu.aggregator",
         "description": "modes.cpu.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for cpu monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for cpu monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.cpu.aggregator",
         "documentation": {}
     },
@@ -2860,7 +2860,7 @@
         "kind": 2,
         "importPath": "modes.cpu.cpuspeed",
         "description": "modes.cpu.cpuspeed",
-        "peekOfCode": "def get_cpu_speed():\n    \"\"\"\n    CPU Speed Monitor - Returns current CPU clock speed\n    \"\"\"\n    import psutil\n    def get_cpu_speed():\n        \"\"\"\n        Get current CPU frequency in MHz.\n        Returns:\n            dict: {\"current_mhz\": float, \"min_mhz\": float, \"max_mhz\": float} or {\"error\": str}",
+        "peekOfCode": "def get_cpu_speed():\n    \"\"\"\n    Get current CPU frequency in MHz.\n    Returns:\n        dict: {\"current_mhz\": float, \"min_mhz\": float, \"max_mhz\": float} or {\"error\": str}\n    \"\"\"\n    try:\n        freq = psutil.cpu_freq()\n        if freq:\n            return {",
         "detail": "modes.cpu.cpuspeed",
         "documentation": {}
     },
@@ -2878,7 +2878,7 @@
         "kind": 2,
         "importPath": "modes.cpu.cpu_usage",
         "description": "modes.cpu.cpu_usage",
-        "peekOfCode": "def get_cpu_usage():\n    \"\"\"\n    CPU Usage Monitor - Returns CPU usage percentage\n    \"\"\"\n    import psutil\n    def get_cpu_usage():\n        \"\"\"\n        Get CPU usage percentage and per-core usage.\n        Returns:\n            dict: {\"usage_percent\": float, \"per_core\": list, \"core_count\": int} or {\"error\": str}",
+        "peekOfCode": "def get_cpu_usage():\n    \"\"\"\n    Get CPU usage percentage and per-core usage.\n    Returns:\n        dict: {\"usage_percent\": float, \"per_core\": list, \"core_count\": int} or {\"error\": str}\n    \"\"\"\n    try:\n        per_core_usage = psutil.cpu_percent(interval=1, percpu=True)\n        return {\n            \"usage_percent\": sum(per_core_usage) / len(per_core_usage) if per_core_usage else 0,",
         "detail": "modes.cpu.cpu_usage",
         "documentation": {}
     },
