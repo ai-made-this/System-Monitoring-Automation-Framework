@@ -1,0 +1,16 @@
+{
+  "all": [
+    "cpuspeed",
+    "cputemp",
+    "cpu_usage"
+  ],
+  "basic": [
+    "cpuspeed",
+    "cputemp"
+  ],
+  "detailed": [
+    "cpuspeed",
+    "cputemp",
+    "cpu_usage"
+  ]
+}

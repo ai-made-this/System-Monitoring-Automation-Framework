@@ -1,0 +1,16 @@
+{
+  "all": [
+    "api_integration",
+    "notifications",
+    "remote_control"
+  ],
+  "basic": [
+    "api_integration",
+    "notifications"
+  ],
+  "detailed": [
+    "api_integration",
+    "notifications",
+    "remote_control"
+  ]
+}

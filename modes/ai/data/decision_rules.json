@@ -1,0 +1,38 @@
+{
+  "resource_management": [
+    {
+      "condition": "cpu_usage > 80",
+      "action": "suggest_process_optimization",
+      "priority": "high"
+    },
+    {
+      "condition": "memory_usage > 85",
+      "action": "suggest_memory_cleanup",
+      "priority": "high"
+    },
+    {
+      "condition": "disk_usage > 90",
+      "action": "suggest_disk_cleanup",
+      "priority": "critical"
+    }
+  ],
+  "automation": [
+    {
+      "condition": "repetitive_task_detected",
+      "action": "suggest_macro_creation",
+      "priority": "medium"
+    },
+    {
+      "condition": "scheduled_task_ready",
+      "action": "execute_scheduled_task",
+      "priority": "medium"
+    }
+  ],
+  "optimization": [
+    {
+      "condition": "low_activity_period",
+      "action": "suggest_maintenance_tasks",
+      "priority": "low"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "all": [
+    "build_monitoring",
+    "code_analysis"
+  ],
+  "basic": [
+    "build_monitoring",
+    "code_analysis"
+  ],
+  "detailed": [
+    "build_monitoring",
+    "code_analysis"
+  ]
+}

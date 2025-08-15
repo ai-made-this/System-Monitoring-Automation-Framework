@@ -1,0 +1,16 @@
+{
+  "all": [
+    "memfree",
+    "memtotal",
+    "memusage"
+  ],
+  "basic": [
+    "memfree",
+    "memtotal"
+  ],
+  "detailed": [
+    "memfree",
+    "memtotal",
+    "memusage"
+  ]
+}

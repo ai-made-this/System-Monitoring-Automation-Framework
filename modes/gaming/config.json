@@ -1,0 +1,16 @@
+{
+  "all": [
+    "game_automation",
+    "game_detection",
+    "performance_optimization"
+  ],
+  "basic": [
+    "game_automation",
+    "game_detection"
+  ],
+  "detailed": [
+    "game_automation",
+    "game_detection",
+    "performance_optimization"
+  ]
+}

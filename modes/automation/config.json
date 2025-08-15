@@ -1,0 +1,14 @@
+{
+  "all": [
+    "macro_recorder",
+    "script_runner"
+  ],
+  "basic": [
+    "macro_recorder",
+    "script_runner"
+  ],
+  "detailed": [
+    "macro_recorder",
+    "script_runner"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "all": [
+    "gpuspeed",
+    "gputemp",
+    "gpu_usage"
+  ],
+  "basic": [
+    "gpuspeed",
+    "gputemp"
+  ],
+  "detailed": [
+    "gpuspeed",
+    "gputemp",
+    "gpu_usage"
+  ]
+}

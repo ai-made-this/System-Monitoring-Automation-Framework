@@ -1,0 +1,16 @@
+{
+  "all": [
+    "ocr_analysis",
+    "screen_capture",
+    "ui_detection"
+  ],
+  "basic": [
+    "ocr_analysis",
+    "screen_capture"
+  ],
+  "detailed": [
+    "ocr_analysis",
+    "screen_capture",
+    "ui_detection"
+  ]
+}

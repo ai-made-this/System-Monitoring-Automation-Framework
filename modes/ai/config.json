@@ -1,0 +1,24 @@
+{
+  "all": [
+    "autonomous_control",
+    "decision_engine",
+    "habit_analyzer",
+    "learning_engine",
+    "pattern_recognition",
+    "predictive_analysis",
+    "query_processor"
+  ],
+  "basic": [
+    "autonomous_control",
+    "decision_engine"
+  ],
+  "detailed": [
+    "autonomous_control",
+    "decision_engine",
+    "habit_analyzer",
+    "learning_engine",
+    "pattern_recognition",
+    "predictive_analysis",
+    "query_processor"
+  ]
+}

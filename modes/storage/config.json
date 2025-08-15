@@ -1,0 +1,18 @@
+{
+  "all": [
+    "disk_free",
+    "disk_io",
+    "disk_total",
+    "disk_usage"
+  ],
+  "basic": [
+    "disk_free",
+    "disk_io"
+  ],
+  "detailed": [
+    "disk_free",
+    "disk_io",
+    "disk_total",
+    "disk_usage"
+  ]
+}

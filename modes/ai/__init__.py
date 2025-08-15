@@ -1,0 +1,1 @@
+# AI modules for habit learning, pattern recognition, and autonomous control

@@ -1,0 +1,14 @@
+{
+  "all": [
+    "maintenance_scheduler",
+    "system_diagnostics"
+  ],
+  "basic": [
+    "maintenance_scheduler",
+    "system_diagnostics"
+  ],
+  "detailed": [
+    "maintenance_scheduler",
+    "system_diagnostics"
+  ]
+}

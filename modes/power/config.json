@@ -1,0 +1,16 @@
+{
+  "all": [
+    "battery_status",
+    "energy_usage",
+    "power_plan"
+  ],
+  "basic": [
+    "battery_status",
+    "energy_usage"
+  ],
+  "detailed": [
+    "battery_status",
+    "energy_usage",
+    "power_plan"
+  ]
+}

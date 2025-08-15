@@ -1,0 +1,15 @@
+{
+  "decisions": [
+    {
+      "category": "resource_management",
+      "action": "suggest_process_optimization",
+      "priority": "high",
+      "reason": "Rule triggered: cpu_usage > 80",
+      "timestamp": 1755260958.6409402,
+      "executed": false
+    }
+  ],
+  "timestamp": 1755260958.6409402,
+  "rules_applied": 3,
+  "decision_count": 1
+}

@@ -1,0 +1,8 @@
+{
+  "auto_start": false,
+  "monitoring_enabled": true,
+  "learning_enabled": true,
+  "service_port": 8080,
+  "log_level": "INFO",
+  "data_retention_days": 30
+}

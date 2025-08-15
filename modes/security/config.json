@@ -1,0 +1,16 @@
+{
+  "all": [
+    "firewall_status",
+    "login_attempts",
+    "open_ports"
+  ],
+  "basic": [
+    "firewall_status",
+    "login_attempts"
+  ],
+  "detailed": [
+    "firewall_status",
+    "login_attempts",
+    "open_ports"
+  ]
+}

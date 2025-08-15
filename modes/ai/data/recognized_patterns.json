@@ -1,0 +1,17 @@
+{
+  "patterns": [
+    {
+      "type": "work_hours",
+      "description": "Activity during typical work hours",
+      "timestamp": 1755259567.2019618,
+      "confidence": 0.8
+    },
+    {
+      "type": "work_hours",
+      "description": "Activity during typical work hours",
+      "timestamp": 1755260958.661312,
+      "confidence": 0.8
+    }
+  ],
+  "last_analysis": 1755260958.661312
+}

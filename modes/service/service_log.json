@@ -1,0 +1,39 @@
+{
+  "data_points": [
+    {
+      "timestamp": 1755264291.6291769,
+      "datetime": "2025-08-15T15:24:51.629176",
+      "cpu_percent": 57.6,
+      "memory_percent": 76.5,
+      "disk_io": {
+        "read_count": 681855,
+        "write_count": 402703,
+        "read_bytes": 17257380352,
+        "write_bytes": 15972297728,
+        "read_time": 468,
+        "write_time": 160
+      },
+      "network_io": {
+        "bytes_sent": 216421135,
+        "bytes_recv": 376945221,
+        "packets_sent": 262760,
+        "packets_recv": 436508,
+        "errin": 0,
+        "errout": 0,
+        "dropin": 0,
+        "dropout": 0
+      },
+      "active_processes": 201,
+      "boot_time": 1755240004.638496,
+      "hour_of_day": 15,
+      "day_of_week": 4,
+      "session_active": true,
+      "idle_time": 0
+    }
+  ],
+  "service_info": {
+    "last_update": 1755264292.638496,
+    "total_points": 1,
+    "service_uptime": 0.0
+  }
+}

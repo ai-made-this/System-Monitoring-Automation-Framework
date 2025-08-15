@@ -1,0 +1,16 @@
+{
+  "all": [
+    "clipboard_stats",
+    "keyboard_stats",
+    "mouse_stats"
+  ],
+  "basic": [
+    "clipboard_stats",
+    "keyboard_stats"
+  ],
+  "detailed": [
+    "clipboard_stats",
+    "keyboard_stats",
+    "mouse_stats"
+  ]
+}

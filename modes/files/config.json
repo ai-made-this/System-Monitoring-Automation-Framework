@@ -1,0 +1,22 @@
+{
+  "all": [
+    "directory_ops",
+    "file_copy",
+    "file_create",
+    "file_delete",
+    "file_rename",
+    "file_search"
+  ],
+  "basic": [
+    "directory_ops",
+    "file_copy"
+  ],
+  "detailed": [
+    "directory_ops",
+    "file_copy",
+    "file_create",
+    "file_delete",
+    "file_rename",
+    "file_search"
+  ]
+}

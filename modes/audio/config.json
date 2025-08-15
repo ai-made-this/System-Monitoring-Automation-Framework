@@ -1,0 +1,22 @@
+{
+  "all": [
+    "audio_levels",
+    "audio_optimization",
+    "device_manager",
+    "meeting_audio",
+    "sound_analysis",
+    "voice_activity"
+  ],
+  "basic": [
+    "audio_levels",
+    "audio_optimization"
+  ],
+  "detailed": [
+    "audio_levels",
+    "audio_optimization",
+    "device_manager",
+    "meeting_audio",
+    "sound_analysis",
+    "voice_activity"
+  ]
+}

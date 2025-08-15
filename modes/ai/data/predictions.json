@@ -1,0 +1,38 @@
+{
+  "predictions": [
+    {
+      "type": "resource_usage",
+      "resource": "cpu",
+      "prediction": "high",
+      "confidence": 0.7,
+      "reason": "Work hours - typically high CPU usage",
+      "timeframe": "next_2_hours"
+    },
+    {
+      "type": "resource_usage",
+      "resource": "memory",
+      "prediction": "moderate",
+      "confidence": 0.5,
+      "reason": "Based on typical usage patterns",
+      "timeframe": "next_1_hour"
+    },
+    {
+      "type": "maintenance",
+      "task": "disk_cleanup",
+      "urgency": "low",
+      "confidence": 0.4,
+      "reason": "Routine maintenance recommendation",
+      "timeframe": "next_week"
+    },
+    {
+      "type": "maintenance",
+      "task": "system_restart",
+      "urgency": "medium",
+      "confidence": 0.6,
+      "reason": "System uptime optimization",
+      "timeframe": "next_24_hours"
+    }
+  ],
+  "generated_at": 1755260958.6643085,
+  "confidence_level": "moderate"
+}

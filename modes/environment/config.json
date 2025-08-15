@@ -1,0 +1,16 @@
+{
+  "all": [
+    "audio_devices",
+    "screen_info",
+    "usb_devices"
+  ],
+  "basic": [
+    "audio_devices",
+    "screen_info"
+  ],
+  "detailed": [
+    "audio_devices",
+    "screen_info",
+    "usb_devices"
+  ]
+}

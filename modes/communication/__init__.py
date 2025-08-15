@@ -1,0 +1,1 @@
+# Communication modules for notifications and external integrations

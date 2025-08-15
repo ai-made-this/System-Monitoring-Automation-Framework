@@ -1,0 +1,22 @@
+{
+  "all": [
+    "anomaly_detection",
+    "behavioral_modeling",
+    "feature_engineering",
+    "model_training",
+    "neural_networks",
+    "performance_prediction"
+  ],
+  "basic": [
+    "anomaly_detection",
+    "behavioral_modeling"
+  ],
+  "detailed": [
+    "anomaly_detection",
+    "behavioral_modeling",
+    "feature_engineering",
+    "model_training",
+    "neural_networks",
+    "performance_prediction"
+  ]
+}

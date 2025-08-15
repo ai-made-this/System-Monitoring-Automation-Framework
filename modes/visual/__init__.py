@@ -1,0 +1,1 @@
+# Visual monitoring modules for screen capture and analysis

@@ -1,0 +1,16 @@
+{
+  "all": [
+    "background_monitor",
+    "continuous_learning",
+    "system_service"
+  ],
+  "basic": [
+    "background_monitor",
+    "continuous_learning"
+  ],
+  "detailed": [
+    "background_monitor",
+    "continuous_learning",
+    "system_service"
+  ]
+}

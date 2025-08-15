@@ -1,0 +1,14 @@
+{
+  "all": [
+    "focus_assistant",
+    "time_tracking"
+  ],
+  "basic": [
+    "focus_assistant",
+    "time_tracking"
+  ],
+  "detailed": [
+    "focus_assistant",
+    "time_tracking"
+  ]
+}

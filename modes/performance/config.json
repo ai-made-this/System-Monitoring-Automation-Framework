@@ -1,0 +1,16 @@
+{
+  "all": [
+    "boot_time",
+    "resource_alerts",
+    "startup_programs"
+  ],
+  "basic": [
+    "boot_time",
+    "resource_alerts"
+  ],
+  "detailed": [
+    "boot_time",
+    "resource_alerts",
+    "startup_programs"
+  ]
+}

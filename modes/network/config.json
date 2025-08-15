@@ -1,0 +1,16 @@
+{
+  "all": [
+    "net_latency",
+    "net_speed",
+    "net_usage"
+  ],
+  "basic": [
+    "net_latency",
+    "net_speed"
+  ],
+  "detailed": [
+    "net_latency",
+    "net_speed",
+    "net_usage"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "enabled": false,
+  "collection_interval": 30,
+  "data_retention_days": 30,
+  "auto_start": false
+}

@@ -1,0 +1,18 @@
+{
+  "all": [
+    "os_info",
+    "processes",
+    "uptime",
+    "user_sessions"
+  ],
+  "basic": [
+    "os_info",
+    "processes"
+  ],
+  "detailed": [
+    "os_info",
+    "processes",
+    "uptime",
+    "user_sessions"
+  ]
+}

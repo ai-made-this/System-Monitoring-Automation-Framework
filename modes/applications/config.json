@@ -1,0 +1,16 @@
+{
+  "all": [
+    "active_window",
+    "app_usage",
+    "browser_tabs"
+  ],
+  "basic": [
+    "active_window",
+    "app_usage"
+  ],
+  "detailed": [
+    "active_window",
+    "app_usage",
+    "browser_tabs"
+  ]
+}

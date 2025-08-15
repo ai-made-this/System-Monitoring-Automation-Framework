@@ -1,0 +1,9 @@
+{
+  "status": "stopped",
+  "monitoring_active": false,
+  "learning_active": false,
+  "uptime_hours": 0.05,
+  "data_points_collected": 0,
+  "models_learning": 0,
+  "last_activity": 0
+}

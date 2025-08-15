@@ -1,0 +1,20 @@
+{
+  "all": [
+    "environment_vars",
+    "process_control",
+    "registry_ops",
+    "scheduled_tasks",
+    "service_control"
+  ],
+  "basic": [
+    "environment_vars",
+    "process_control"
+  ],
+  "detailed": [
+    "environment_vars",
+    "process_control",
+    "registry_ops",
+    "scheduled_tasks",
+    "service_control"
+  ]
+}

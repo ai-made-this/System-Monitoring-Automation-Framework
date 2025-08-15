@@ -1,0 +1,48 @@
+{
+  "daily_tasks": [
+    {
+      "task": "temp_cleanup",
+      "time": "02:00",
+      "enabled": true
+    },
+    {
+      "task": "log_rotation",
+      "time": "02:30",
+      "enabled": true
+    }
+  ],
+  "weekly_tasks": [
+    {
+      "task": "disk_defrag",
+      "day": "sunday",
+      "time": "03:00",
+      "enabled": false
+    },
+    {
+      "task": "registry_cleanup",
+      "day": "saturday",
+      "time": "02:00",
+      "enabled": true
+    },
+    {
+      "task": "system_scan",
+      "day": "friday",
+      "time": "01:00",
+      "enabled": true
+    }
+  ],
+  "monthly_tasks": [
+    {
+      "task": "full_system_backup",
+      "day": 1,
+      "time": "01:00",
+      "enabled": true
+    },
+    {
+      "task": "driver_updates",
+      "day": 15,
+      "time": "02:00",
+      "enabled": false
+    }
+  ]
+}

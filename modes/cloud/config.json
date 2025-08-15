@@ -1,0 +1,14 @@
+{
+  "all": [
+    "backup_sync",
+    "data_analytics"
+  ],
+  "basic": [
+    "backup_sync",
+    "data_analytics"
+  ],
+  "detailed": [
+    "backup_sync",
+    "data_analytics"
+  ]
+}
