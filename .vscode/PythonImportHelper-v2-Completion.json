@@ -1344,14 +1344,6 @@
         "documentation": {}
     },
     {
-        "label": "aggregator",
-        "importPath": "modes.gpu",
-        "description": "modes.gpu",
-        "isExtraImport": true,
-        "detail": "modes.gpu",
-        "documentation": {}
-    },
-    {
         "label": "gpuspeed",
         "importPath": "modes.gpu",
         "description": "modes.gpu",
@@ -1373,14 +1365,6 @@
         "description": "modes.gpu",
         "isExtraImport": true,
         "detail": "modes.gpu",
-        "documentation": {}
-    },
-    {
-        "label": "aggregator",
-        "importPath": "modes.network",
-        "description": "modes.network",
-        "isExtraImport": true,
-        "detail": "modes.network",
         "documentation": {}
     },
     {
@@ -5403,15 +5387,6 @@
         "documentation": {}
     },
     {
-        "label": "TestGPUAggregator",
-        "kind": 6,
-        "importPath": "tests.modes.gpu.test_aggregator",
-        "description": "tests.modes.gpu.test_aggregator",
-        "peekOfCode": "class TestGPUAggregator(unittest.TestCase):\n    def test_aggregator_output(self):\n        result = aggregator.aggregate_gpu_data()\n        self.assertIsInstance(result, dict)\nif __name__ == \"__main__\":\n    unittest.main()",
-        "detail": "tests.modes.gpu.test_aggregator",
-        "documentation": {}
-    },
-    {
         "label": "TestGPUSpeed",
         "kind": 6,
         "importPath": "tests.modes.gpu.test_gpuspeed",
@@ -5436,15 +5411,6 @@
         "description": "tests.modes.gpu.test_gpu_usage",
         "peekOfCode": "class TestGPUUsage(unittest.TestCase):\n    def test_gpu_usage_output(self):\n        result = gpu_usage.get_gpu_usage()\n        self.assertIsInstance(result, dict)\n        self.assertIn('gpu_usage', result)\nif __name__ == \"__main__\":\n    unittest.main()",
         "detail": "tests.modes.gpu.test_gpu_usage",
-        "documentation": {}
-    },
-    {
-        "label": "TestNetworkAggregator",
-        "kind": 6,
-        "importPath": "tests.modes.network.test_aggregator",
-        "description": "tests.modes.network.test_aggregator",
-        "peekOfCode": "class TestNetworkAggregator(unittest.TestCase):\n    def test_aggregator_output(self):\n        result = aggregator.aggregate_network_data()\n        self.assertIsInstance(result, dict)\nif __name__ == \"__main__\":\n    unittest.main()",
-        "detail": "tests.modes.network.test_aggregator",
         "documentation": {}
     },
     {
