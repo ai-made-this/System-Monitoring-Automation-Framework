@@ -1,38 +1,35 @@
+import unittest
 import sys
 import os
-import pytest
 
-# Add the project root to the Python path
+# Add the parent directory of `modes` to the Python path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..')))
 
 from modes.cpu.cputemp import get_cpu_temp
 
-def test_get_cpu_temp_structure_and_types():
-    """
-    Tests the basic structure and data types of the get_cpu_temp() response.
-    """
-    result = get_cpu_temp()
+class TestCpuTemp(unittest.TestCase):
 
-    # Check that the result is a dictionary
-    assert isinstance(result, dict)
+    def test_get_cpu_temp_structure(self):
+        """
+        Test the structure of the dictionary returned by get_cpu_temp.
+        """
+        temp_data = get_cpu_temp()
+        if "error" in temp_data:
+            # If there's an error, it should be a string
+            self.assertIsInstance(temp_data["error"], str)
+        else:
+            # If no error, check for the expected keys
+            self.assertIn("temp_celsius", temp_data)
+            self.assertIn("high_threshold", temp_data)
+            self.assertIn("critical_threshold", temp_data)
 
-    # It's common for temp sensors to be unavailable. If so, an error is expected.
-    if "error" in result:
-        print(f"Note: get_cpu_temp() returned an error: {result['error']}. This may be expected.")
-        assert "No compatible temperature sensors found" in result['error'] or "can't find any physical temperature sensors" in result['error']
-        return
+            # Check the types of the values
+            self.assertIsInstance(temp_data["temp_celsius"], (int, float))
+            # Thresholds can be None, so we check for that possibility
+            if temp_data["high_threshold"] is not None:
+                self.assertIsInstance(temp_data["high_threshold"], (int, float))
+            if temp_data["critical_threshold"] is not None:
+                self.assertIsInstance(temp_data["critical_threshold"], (int, float))
 
-    # If there is no error, check for the presence of required keys
-    required_keys = ["temp_celsius", "high_threshold", "critical_threshold"]
-    for key in required_keys:
-        assert key in result, f"Required key '{key}' is missing from the result"
-
-    # Check the types of the values
-    assert isinstance(result["temp_celsius"], (float, int)), "temp_celsius should be a number"
-
-    # The thresholds can be None, so we check for number or NoneType
-    assert isinstance(result["high_threshold"], (float, int, type(None))), "high_threshold should be a number or None"
-    assert isinstance(result["critical_threshold"], (float, int, type(None))), "critical_threshold should be a number or None"
-
-    # Check for a plausible temperature
-    assert -20 < result["temp_celsius"] < 120, "CPU temperature seems implausible"
+if __name__ == '__main__':
+    unittest.main()

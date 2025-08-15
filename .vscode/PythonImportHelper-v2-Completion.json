@@ -1312,12 +1312,11 @@
         "documentation": {}
     },
     {
-        "label": "pytest",
-        "kind": 6,
+        "label": "aggregator",
+        "importPath": "modes.cpu",
+        "description": "modes.cpu",
         "isExtraImport": true,
-        "importPath": "pytest",
-        "description": "pytest",
-        "detail": "pytest",
+        "detail": "modes.cpu",
         "documentation": {}
     },
     {
@@ -5287,29 +5286,38 @@
         "documentation": {}
     },
     {
-        "label": "test_get_cpu_speed_structure_and_types",
-        "kind": 2,
+        "label": "TestCpuAggregator",
+        "kind": 6,
+        "importPath": "tests.modes.cpu.test_aggregator",
+        "description": "tests.modes.cpu.test_aggregator",
+        "peekOfCode": "class TestCpuAggregator(unittest.TestCase):\n    def test_list_modes(self):\n        \"\"\"Test that list_modes returns the correct list of modes.\"\"\"\n        modes = aggregator.list_modes()\n        self.assertEqual(sorted(modes), sorted(['all', 'basic', 'detailed']))\n    def test_list_modules(self):\n        \"\"\"Test that list_modules returns the correct list of modules.\"\"\"\n        modules = aggregator.list_modules()\n        self.assertEqual(sorted(modules), sorted(['cpu_usage', 'cpuspeed', 'cputemp']))\n    def test_run_mode_all(self):",
+        "detail": "tests.modes.cpu.test_aggregator",
+        "documentation": {}
+    },
+    {
+        "label": "TestCpuSpeed",
+        "kind": 6,
         "importPath": "tests.modes.cpu.test_cpuspeed",
         "description": "tests.modes.cpu.test_cpuspeed",
-        "peekOfCode": "def test_get_cpu_speed_structure_and_types():\n    \"\"\"\n    Tests the basic structure and data types of the get_cpu_speed() response.\n    \"\"\"\n    result = get_cpu_speed()\n    # Check that the result is a dictionary\n    assert isinstance(result, dict)\n    # If there's an error (e.g., permissions), the test should not fail, but we can't check keys.\n    if \"error\" in result:\n        print(f\"Note: get_cpu_speed() returned an error: {result['error']}. Skipping key checks.\")",
+        "peekOfCode": "class TestCpuSpeed(unittest.TestCase):\n    def test_get_cpu_speed_structure_and_values(self):\n        \"\"\"\n        Test the structure and values of the dictionary returned by get_cpu_speed.\n        \"\"\"\n        speed_data = get_cpu_speed()\n        if \"error\" in speed_data:\n            self.assertIsInstance(speed_data[\"error\"], str)\n        else:\n            self.assertIn(\"current_mhz\", speed_data)",
         "detail": "tests.modes.cpu.test_cpuspeed",
         "documentation": {}
     },
     {
-        "label": "test_get_cpu_temp_structure_and_types",
-        "kind": 2,
+        "label": "TestCpuTemp",
+        "kind": 6,
         "importPath": "tests.modes.cpu.test_cputemp",
         "description": "tests.modes.cpu.test_cputemp",
-        "peekOfCode": "def test_get_cpu_temp_structure_and_types():\n    \"\"\"\n    Tests the basic structure and data types of the get_cpu_temp() response.\n    \"\"\"\n    result = get_cpu_temp()\n    # Check that the result is a dictionary\n    assert isinstance(result, dict)\n    # It's common for temp sensors to be unavailable. If so, an error is expected.\n    if \"error\" in result:\n        print(f\"Note: get_cpu_temp() returned an error: {result['error']}. This may be expected.\")",
+        "peekOfCode": "class TestCpuTemp(unittest.TestCase):\n    def test_get_cpu_temp_structure(self):\n        \"\"\"\n        Test the structure of the dictionary returned by get_cpu_temp.\n        \"\"\"\n        temp_data = get_cpu_temp()\n        if \"error\" in temp_data:\n            # If there's an error, it should be a string\n            self.assertIsInstance(temp_data[\"error\"], str)\n        else:",
         "detail": "tests.modes.cpu.test_cputemp",
         "documentation": {}
     },
     {
-        "label": "test_get_cpu_usage_structure_and_types",
-        "kind": 2,
+        "label": "TestCpuUsage",
+        "kind": 6,
         "importPath": "tests.modes.cpu.test_cpu_usage",
         "description": "tests.modes.cpu.test_cpu_usage",
-        "peekOfCode": "def test_get_cpu_usage_structure_and_types():\n    \"\"\"\n    Tests the basic structure and data types of the get_cpu_usage() response.\n    \"\"\"\n    result = get_cpu_usage()\n    # Check that no error was returned\n    assert \"error\" not in result, f\"Function returned an error: {result.get('error')}\"\n    # Check that the result is a dictionary\n    assert isinstance(result, dict)\n    # Check for the presence of required keys",
+        "peekOfCode": "class TestCpuUsage(unittest.TestCase):\n    def test_get_cpu_usage_structure_and_values(self):\n        \"\"\"\n        Test the structure and values of the dictionary returned by get_cpu_usage.\n        \"\"\"\n        usage_data = get_cpu_usage()\n        if \"error\" in usage_data:\n            self.assertIsInstance(usage_data[\"error\"], str)\n        else:\n            self.assertIn(\"usage_percent\", usage_data)",
         "detail": "tests.modes.cpu.test_cpu_usage",
         "documentation": {}
     },

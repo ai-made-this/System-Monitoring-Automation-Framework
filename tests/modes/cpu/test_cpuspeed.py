@@ -1,35 +1,35 @@
+import unittest
 import sys
 import os
-import pytest
 
-# Add the project root to the Python path
+# Add the parent directory of `modes` to the Python path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..')))
 
 from modes.cpu.cpuspeed import get_cpu_speed
 
-def test_get_cpu_speed_structure_and_types():
-    """
-    Tests the basic structure and data types of the get_cpu_speed() response.
-    """
-    result = get_cpu_speed()
+class TestCpuSpeed(unittest.TestCase):
 
-    # Check that the result is a dictionary
-    assert isinstance(result, dict)
+    def test_get_cpu_speed_structure_and_values(self):
+        """
+        Test the structure and values of the dictionary returned by get_cpu_speed.
+        """
+        speed_data = get_cpu_speed()
+        if "error" in speed_data:
+            self.assertIsInstance(speed_data["error"], str)
+        else:
+            self.assertIn("current_mhz", speed_data)
+            self.assertIn("min_mhz", speed_data)
+            self.assertIn("max_mhz", speed_data)
 
-    # If there's an error (e.g., permissions), the test should not fail, but we can't check keys.
-    if "error" in result:
-        print(f"Note: get_cpu_speed() returned an error: {result['error']}. Skipping key checks.")
-        return
+            self.assertIsInstance(speed_data["current_mhz"], (int, float))
+            self.assertGreater(speed_data["current_mhz"], 0)
 
-    # Check for the presence of required keys
-    required_keys = ["current_mhz", "min_mhz", "max_mhz"]
-    for key in required_keys:
-        assert key in result, f"Required key '{key}' is missing from the result"
+            # min and max can be 0 on some systems
+            self.assertIsInstance(speed_data["min_mhz"], (int, float))
+            self.assertGreaterEqual(speed_data["min_mhz"], 0)
 
-    # Check the types of the values (can be float or int)
-    assert isinstance(result["current_mhz"], (float, int)), "current_mhz should be a number"
-    assert isinstance(result["min_mhz"], (float, int)), "min_mhz should be a number"
-    assert isinstance(result["max_mhz"], (float, int)), "max_mhz should be a number"
+            self.assertIsInstance(speed_data["max_mhz"], (int, float))
+            self.assertGreaterEqual(speed_data["max_mhz"], 0)
 
-    # Check for plausible values
-    assert result["current_mhz"] > 0, "current_mhz should be greater than 0"
+if __name__ == '__main__':
+    unittest.main()
