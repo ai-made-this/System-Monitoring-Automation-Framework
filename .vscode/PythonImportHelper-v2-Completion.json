@@ -5326,7 +5326,7 @@
         "kind": 2,
         "importPath": "build_aggregators",
         "description": "build_aggregators",
-        "peekOfCode": "def build_aggregator(category):\n    category_path = BASE_DIR / category\n    if not category_path.exists():\n        print(f\"Skipping {category} - no folder found.\")\n        return\n    modules = [\n        f.stem for f in category_path.glob(\"*.py\")\n        if f.name not in (\"__init__.py\", \"aggregator.py\")\n    ]\n    if not modules:",
+        "peekOfCode": "def build_aggregator(category):\n    category_path = BASE_DIR / category\n    if not category_path.exists():\n        print(f\"Skipping {category} - no folder found.\")\n        return\n    # Use os.listdir to count .py files for reporting\n    py_files = [f for f in os.listdir(category_path) if f.endswith('.py') and f not in ('__init__.py', 'aggregator.py')]\n    modules = [Path(f).stem for f in py_files]\n    print(f\"Found {len(modules)} Python modules in {category}: {', '.join(modules)}\")\n    if not modules:",
         "detail": "build_aggregators",
         "documentation": {}
     },
@@ -5335,7 +5335,7 @@
         "kind": 2,
         "importPath": "build_aggregators",
         "description": "build_aggregators",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for {category} monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {{mode_name}}. Available: {{list(MODES.keys())}}\")\n    results = {{}}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{{module_name}}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for {category} monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {{mode_name}}. Available: {{list(MODES.keys())}}\")\n    results = {{}}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{{module_name}}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {{'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}}",
         "detail": "build_aggregators",
         "documentation": {}
     },
@@ -5371,7 +5371,7 @@
         "kind": 5,
         "importPath": "build_aggregators",
         "description": "build_aggregators",
-        "peekOfCode": "BASE_DIR = Path(__file__).parent / \"modes\"\ndef build_aggregator(category):\n    category_path = BASE_DIR / category\n    if not category_path.exists():\n        print(f\"Skipping {category} - no folder found.\")\n        return\n    modules = [\n        f.stem for f in category_path.glob(\"*.py\")\n        if f.name not in (\"__init__.py\", \"aggregator.py\")\n    ]",
+        "peekOfCode": "BASE_DIR = Path(__file__).parent / \"modes\"\ndef build_aggregator(category):\n    category_path = BASE_DIR / category\n    if not category_path.exists():\n        print(f\"Skipping {category} - no folder found.\")\n        return\n    # Use os.listdir to count .py files for reporting\n    py_files = [f for f in os.listdir(category_path) if f.endswith('.py') and f not in ('__init__.py', 'aggregator.py')]\n    modules = [Path(f).stem for f in py_files]\n    print(f\"Found {len(modules)} Python modules in {category}: {', '.join(modules)}\")",
         "detail": "build_aggregators",
         "documentation": {}
     },

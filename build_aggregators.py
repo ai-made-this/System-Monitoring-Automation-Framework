@@ -19,10 +19,10 @@ def build_aggregator(category):
         print(f"Skipping {category} - no folder found.")
         return
     
-    modules = [
-        f.stem for f in category_path.glob("*.py")
-        if f.name not in ("__init__.py", "aggregator.py")
-    ]
+    # Use os.listdir to count .py files for reporting
+    py_files = [f for f in os.listdir(category_path) if f.endswith('.py') and f not in ('__init__.py', 'aggregator.py')]
+    modules = [Path(f).stem for f in py_files]
+    print(f"Found {len(modules)} Python modules in {category}: {', '.join(modules)}")
     
     if not modules:
         print(f"No modules found in {category}")
@@ -39,6 +39,16 @@ def build_aggregator(category):
         with open(config_path, "w") as f:
             json.dump(config_data, f, indent=2)
         print(f"Created config.json for {category}")
+    
+    # Use importlib to check if each module can be imported (report errors)
+    import_errors = []
+    for mod_name in modules:
+        try:
+            importlib.import_module(f"modes.{category}.{mod_name}")
+        except Exception as e:
+            import_errors.append((mod_name, str(e)))
+    if import_errors:
+        print(f"Import errors in {category}: {import_errors}")
     
     # Create aggregator.py
     aggregator_code = f'''"""
@@ -57,14 +67,11 @@ def run_mode(mode_name="all"):
     """Run specified mode for {category} monitoring"""
     if mode_name not in MODES:
         raise ValueError(f"Unknown mode: {{mode_name}}. Available: {{list(MODES.keys())}}")
-    
     results = {{}}
     for module_name in MODES[mode_name]:
         try:
             mod = importlib.import_module(f".{{module_name}}", __package__)
-            # Find the main function (look for get_* functions first, then others)
             all_funcs = [f for f in dir(mod) if not f.startswith("_") and callable(getattr(mod, f))]
-            # Prioritize get_* functions, exclude common imports
             excluded = {{'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}}
             funcs = [f for f in all_funcs if f.startswith('get_') and f not in excluded]
             if not funcs:
