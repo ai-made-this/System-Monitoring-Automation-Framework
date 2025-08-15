@@ -12,15 +12,13 @@ import importlib
 import sys
 from pathlib import Path
 
-from ./scripts/update_structure import update_structure_file
-
 
 BASE_DIR = Path(__file__).parent / "modes"
 
 def build_aggregator(category):
     category_path = BASE_DIR / category
     if not category_path.exists():
-        print(f"Skipping {category} - no folder found.")
+        print(f"Skipping {category} - no folder found.", file=sys.stderr)
         return
     
     # Use os.listdir to count .py files for reporting
@@ -29,7 +27,7 @@ def build_aggregator(category):
     print(f"Found {len(modules)} Python modules in {category}: {', '.join(modules)}")
     
     if not modules:
-        print(f"No modules found in {category}")
+        print(f"No modules found in {category}", file=sys.stderr)
         return
     
     # Generate default config
@@ -52,7 +50,7 @@ def build_aggregator(category):
         except Exception as e:
             import_errors.append((mod_name, str(e)))
     if import_errors:
-        print(f"Import errors in {category}: {import_errors}")
+        print(f"Import errors in {category}: {import_errors}", file=sys.stderr)
     
     # Create aggregator.py
     aggregator_code = f'''"""
@@ -116,35 +114,34 @@ def main():
     """Build aggregators for all category folders"""
     if not BASE_DIR.exists():
         BASE_DIR.mkdir(parents=True)
-        print(f"Created {BASE_DIR}")
-    
+        print(f"Created {BASE_DIR}", file=sys.stderr)
+
     categories = [d.name for d in BASE_DIR.iterdir() if d.is_dir()]
-    
+
     if not categories:
-        print("No category folders found. Creating example structure...")
+        print("No category folders found. Creating example structure...", file=sys.stderr)
         return
-    
+
     for cat in categories:
         build_aggregator(cat)
-    
+
     print(f"\nProcessed {len(categories)} categories: {', '.join(categories)}")
-    
+
     # Auto-update structure file
     try:
         print("\n🔄 Auto-updating Current_Structure.txt...")
-        import sys
         sys.path.append('scripts')
         try:
-            from update_structure import update_structure_file
+            from scripts.update_structure import update_structure_file
         except ImportError:
-            print("💡 Run 'python scripts/update_structure.py' to update structure file")
+            print("💡 Run 'python scripts/update_structure.py' to update structure file", file=sys.stderr)
             return
         if update_structure_file():
             print("✅ Structure file updated automatically")
         else:
-            print("⚠️  Structure file update failed")
+            print("⚠️  Structure file update failed", file=sys.stderr)
     except Exception as e:
-        print(f"⚠️  Structure update error: {e}")
+        print(f"⚠️  Structure update error: {e}", file=sys.stderr)
 
 if __name__ == "__main__":
     main()
