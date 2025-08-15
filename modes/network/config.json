@@ -2,6 +2,7 @@
   "all": [
     "net_latency",
     "net_speed",
+    "net_speedtest",
     "net_usage"
   ],
   "basic": [
@@ -11,6 +12,7 @@
   "detailed": [
     "net_latency",
     "net_speed",
+    "net_speedtest",
     "net_usage"
   ]
 }

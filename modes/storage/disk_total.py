@@ -1,4 +1,4 @@
-"""Disk Total Monitor - Returns total disk space"""
+"""Disk Total Monitor - Returns total disk space for all drives"""
 import psutil
 
 def get_disk_total():
@@ -11,6 +11,7 @@ def get_disk_total():
                 disks[partition.device] = {
                     "total_bytes": usage.total,
                     "total_gb": round(usage.total / (1024**3), 2),
+                    "total_tb": round(usage.total / (1024**4), 3),
                     "filesystem": partition.fstype,
                     "mountpoint": partition.mountpoint
                 }

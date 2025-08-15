@@ -19,8 +19,9 @@ def get_gpu_temp():
         for gpu in gpus:
             gpu_temps.append({
                 "name": gpu.name,
-                "temperature_celsius": round(gpu.temperature, 2)
+                "temp_celsius": gpu.temperature,
+                "temp_fahrenheit": round((gpu.temperature * 9/5) + 32, 1) if gpu.temperature is not None else None
             })
-        return {"gpu_temperatures": gpu_temps}
+        return {"gpu_temperature": gpu_temps}
     except Exception as e:
         return {"error": str(e)}

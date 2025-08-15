@@ -3369,11 +3369,11 @@
         "documentation": {}
     },
     {
-        "label": "get_gpu_memory",
+        "label": "get_gpu_speed",
         "kind": 2,
         "importPath": "modes.gpu.gpuspeed",
         "description": "modes.gpu.gpuspeed",
-        "peekOfCode": "def get_gpu_memory():\n    \"\"\"Get GPU memory details in MiB\"\"\"\n    if not GPU_AVAILABLE:\n        return {\"error\": \"GPUtil not installed. Run: pip install GPUtil\"}\n    try:\n        gpus = GPUtil.getGPUs()\n        if not gpus:\n            return {\"error\": \"No GPUs detected\"}\n        gpu_memory_data = []\n        for gpu in gpus:",
+        "peekOfCode": "def get_gpu_speed():\n    \"\"\"Get GPU clock speeds\"\"\"\n    if not GPU_AVAILABLE:\n        return {\"error\": \"GPUtil not installed. Run: pip install GPUtil\"}\n    try:\n        gpus = GPUtil.getGPUs()\n        if not gpus:\n            return {\"error\": \"No GPUs detected\"}\n        gpu_speeds = []\n        # Try to initialize pynvml for NVIDIA GPUs",
         "detail": "modes.gpu.gpuspeed",
         "documentation": {}
     },
@@ -3616,7 +3616,7 @@
         "kind": 2,
         "importPath": "modes.memory.memtotal",
         "description": "modes.memory.memtotal",
-        "peekOfCode": "def get_mem_total():\n    \"\"\"Get total system memory\"\"\"\n    try:\n        mem = psutil.virtual_memory()\n        return {\n            \"total_bytes\": mem.total,\n            \"total_gb\": round(mem.total / (1024**3), 2)\n        }\n    except Exception as e:\n        return {\"error\": str(e)}",
+        "peekOfCode": "def get_mem_total():\n    \"\"\"\n    Get total system memory information.\n    Returns:\n        dict: {\"total_bytes\": int, \"total_gb\": float, \"total_mb\": float} or {\"error\": str}\n    \"\"\"\n    try:\n        mem = psutil.virtual_memory()\n        return {\n            \"total_bytes\": mem.total,",
         "detail": "modes.memory.memtotal",
         "documentation": {}
     },
@@ -3924,6 +3924,15 @@
         "description": "modes.network.net_speed",
         "peekOfCode": "def get_net_speed():\n    \"\"\"Get network speed by measuring bytes transferred over 1 second\"\"\"\n    try:\n        # For a more accurate measurement, record the actual time elapsed,\n        # as time.sleep(1) is not guaranteed to be exactly one second.\n        start_time = time.monotonic()\n        # Get initial stats\n        stats1 = psutil.net_io_counters()\n        time.sleep(1)\n        end_time = time.monotonic()",
         "detail": "modes.network.net_speed",
+        "documentation": {}
+    },
+    {
+        "label": "get_net_speedtest",
+        "kind": 2,
+        "importPath": "modes.network.net_speedtest",
+        "description": "modes.network.net_speedtest",
+        "peekOfCode": "def get_net_speedtest():\n    \"\"\"Get internet speed test results\"\"\"\n    if not SPEEDTEST_AVAILABLE:\n        return {\"error\": \"speedtest-cli not installed. Run: pip install speedtest-cli\"}\n    try:\n        # Create speedtest instance\n        st = speedtest.Speedtest()\n        # Get best server based on ping\n        st.get_best_server()\n        # Perform download test",
+        "detail": "modes.network.net_speedtest",
         "documentation": {}
     },
     {
