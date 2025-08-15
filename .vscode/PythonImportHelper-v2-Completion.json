@@ -1312,14 +1312,6 @@
         "documentation": {}
     },
     {
-        "label": "update_structure_file",
-        "importPath": "update_structure",
-        "description": "update_structure",
-        "isExtraImport": true,
-        "detail": "update_structure",
-        "documentation": {}
-    },
-    {
         "label": "aggregator",
         "importPath": "modes.cpu",
         "description": "modes.cpu",

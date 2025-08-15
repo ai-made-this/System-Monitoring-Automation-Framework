@@ -12,8 +12,7 @@ import importlib
 import sys
 from pathlib import Path
 
-sys.path.append("scripts")
-from update_structure import update_structure_file
+from ./scripts/update_structure import update_structure_file
 
 
 BASE_DIR = Path(__file__).parent / "modes"
