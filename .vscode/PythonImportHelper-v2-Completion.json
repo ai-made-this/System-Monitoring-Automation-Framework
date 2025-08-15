@@ -1942,7 +1942,7 @@
         "kind": 2,
         "importPath": "modes.ai.aggregator",
         "description": "modes.ai.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for ai monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for ai monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.ai.aggregator",
         "documentation": {}
     },
@@ -2221,7 +2221,7 @@
         "kind": 2,
         "importPath": "modes.applications.aggregator",
         "description": "modes.applications.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for applications monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for applications monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.applications.aggregator",
         "documentation": {}
     },
@@ -2275,7 +2275,7 @@
         "kind": 2,
         "importPath": "modes.audio.aggregator",
         "description": "modes.audio.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for audio monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for audio monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.audio.aggregator",
         "documentation": {}
     },
@@ -2446,7 +2446,7 @@
         "kind": 2,
         "importPath": "modes.automation.aggregator",
         "description": "modes.automation.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for automation monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for automation monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.automation.aggregator",
         "documentation": {}
     },
@@ -2635,7 +2635,7 @@
         "kind": 2,
         "importPath": "modes.cloud.aggregator",
         "description": "modes.cloud.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for cloud monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for cloud monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.cloud.aggregator",
         "documentation": {}
     },
@@ -2716,7 +2716,7 @@
         "kind": 2,
         "importPath": "modes.communication.aggregator",
         "description": "modes.communication.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for communication monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for communication monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.communication.aggregator",
         "documentation": {}
     },
@@ -2887,7 +2887,7 @@
         "kind": 2,
         "importPath": "modes.development.aggregator",
         "description": "modes.development.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for development monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for development monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.development.aggregator",
         "documentation": {}
     },
@@ -2959,7 +2959,7 @@
         "kind": 2,
         "importPath": "modes.environment.aggregator",
         "description": "modes.environment.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for environment monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for environment monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.environment.aggregator",
         "documentation": {}
     },
@@ -3022,7 +3022,7 @@
         "kind": 2,
         "importPath": "modes.files.aggregator",
         "description": "modes.files.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for files monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for files monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.files.aggregator",
         "documentation": {}
     },
@@ -3229,7 +3229,7 @@
         "kind": 2,
         "importPath": "modes.gaming.aggregator",
         "description": "modes.gaming.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for gaming monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for gaming monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.gaming.aggregator",
         "documentation": {}
     },
@@ -3337,7 +3337,7 @@
         "kind": 2,
         "importPath": "modes.gpu.aggregator",
         "description": "modes.gpu.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for gpu monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for gpu monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.gpu.aggregator",
         "documentation": {}
     },
@@ -3400,7 +3400,7 @@
         "kind": 2,
         "importPath": "modes.health.aggregator",
         "description": "modes.health.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for health monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for health monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.health.aggregator",
         "documentation": {}
     },
@@ -3481,7 +3481,7 @@
         "kind": 2,
         "importPath": "modes.input.aggregator",
         "description": "modes.input.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for input monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for input monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.input.aggregator",
         "documentation": {}
     },
@@ -3571,7 +3571,7 @@
         "kind": 2,
         "importPath": "modes.memory.aggregator",
         "description": "modes.memory.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for memory monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for memory monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.memory.aggregator",
         "documentation": {}
     },
@@ -3634,7 +3634,7 @@
         "kind": 2,
         "importPath": "modes.ml.aggregator",
         "description": "modes.ml.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for ml monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for ml monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.ml.aggregator",
         "documentation": {}
     },
@@ -3877,7 +3877,7 @@
         "kind": 2,
         "importPath": "modes.network.aggregator",
         "description": "modes.network.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for network monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for network monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.network.aggregator",
         "documentation": {}
     },
@@ -3940,7 +3940,7 @@
         "kind": 2,
         "importPath": "modes.performance.aggregator",
         "description": "modes.performance.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for performance monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for performance monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.performance.aggregator",
         "documentation": {}
     },
@@ -4003,7 +4003,7 @@
         "kind": 2,
         "importPath": "modes.power.aggregator",
         "description": "modes.power.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for power monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for power monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.power.aggregator",
         "documentation": {}
     },
@@ -4066,7 +4066,7 @@
         "kind": 2,
         "importPath": "modes.productivity.aggregator",
         "description": "modes.productivity.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for productivity monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for productivity monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.productivity.aggregator",
         "documentation": {}
     },
@@ -4156,7 +4156,7 @@
         "kind": 2,
         "importPath": "modes.security.aggregator",
         "description": "modes.security.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for security monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for security monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.security.aggregator",
         "documentation": {}
     },
@@ -4219,7 +4219,7 @@
         "kind": 2,
         "importPath": "modes.service.aggregator",
         "description": "modes.service.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for service monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for service monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.service.aggregator",
         "documentation": {}
     },
@@ -4462,7 +4462,7 @@
         "kind": 2,
         "importPath": "modes.storage.aggregator",
         "description": "modes.storage.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for storage monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for storage monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.storage.aggregator",
         "documentation": {}
     },
@@ -4534,7 +4534,7 @@
         "kind": 2,
         "importPath": "modes.system.aggregator",
         "description": "modes.system.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for system monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for system monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.system.aggregator",
         "documentation": {}
     },
@@ -4606,7 +4606,7 @@
         "kind": 2,
         "importPath": "modes.system_control.aggregator",
         "description": "modes.system_control.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for system_control monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for system_control monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.system_control.aggregator",
         "documentation": {}
     },
@@ -4876,7 +4876,7 @@
         "kind": 2,
         "importPath": "modes.visual.aggregator",
         "description": "modes.visual.aggregator",
-        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for visual monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            # Find the main function (look for get_* functions first, then others)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]",
+        "peekOfCode": "def run_mode(mode_name=\"all\"):\n    \"\"\"Run specified mode for visual monitoring\"\"\"\n    if mode_name not in MODES:\n        raise ValueError(f\"Unknown mode: {mode_name}. Available: {list(MODES.keys())}\")\n    results = {}\n    for module_name in MODES[mode_name]:\n        try:\n            mod = importlib.import_module(f\".{module_name}\", __package__)\n            all_funcs = [f for f in dir(mod) if not f.startswith(\"_\") and callable(getattr(mod, f))]\n            excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}",
         "detail": "modes.visual.aggregator",
         "documentation": {}
     },

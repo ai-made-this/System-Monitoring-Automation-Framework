@@ -1,0 +1,217 @@
+# System Monitoring & Automation Framework - Current Structure
+
+## Overview
+A comprehensive modular system with 26 categories and 94+ individual modules for monitoring hardware, system performance, user activity, and automating tasks. Each module performs a single function with auto-generated aggregators.
+
+## Key Features
+- **Modular Design**: Each .py file does exactly one thing
+- **Auto-Aggregation**: Drop files in folders, run build script, everything's wired
+- **Mode System**: basic/detailed/all modes per category  
+- **CLI Access**: Every module accessible via command line
+- **Cross-Platform**: Windows-focused with extensibility
+
+## Total: 26 Categories, 94+ Individual Modules
+
+modes/
+├── ai/                     # AI & Intelligence (7 modules)
+│   ├── autonomous_control.py                # Take control of apps/games
+│   ├── decision_engine.py                # Intelligent decision making
+│   ├── habit_analyzer.py                # User behavior pattern analysis
+│   ├── learning_engine.py                # Continuous learning system
+│   ├── pattern_recognition.py                # System usage pattern detection
+│   ├── predictive_analysis.py                # Future needs prediction
+│   ├── query_processor.py                # Natural language queries
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+├── applications/                     # Application monitoring (3 modules)
+│   ├── active_window.py                # Active Window
+│   ├── app_usage.py                # App Usage
+│   ├── browser_tabs.py                # Browser Tabs
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+├── audio/                     # Audio monitoring and optimization (6 modules)
+│   ├── audio_levels.py                # Real-time audio level monitoring
+│   ├── audio_optimization.py                # Intelligent audio optimization
+│   ├── device_manager.py                # Audio device management
+│   ├── meeting_audio.py                # Meeting audio enhancement
+│   ├── sound_analysis.py                # Advanced audio analysis
+│   ├── voice_activity.py                # Voice activity detection
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+├── automation/                     # Task automation & recording (4 modules)
+│   ├── action_replay.py                # Action Replay
+│   ├── macro_recorder.py                # Macro Recorder
+│   ├── script_runner.py                # Script Runner
+│   ├── task_scheduler.py                # Task Scheduler
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+├── cloud/                     # Cloud integration (2 modules)
+│   ├── backup_sync.py                # Backup Sync
+│   ├── data_analytics.py                # Data Analytics
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+├── communication/                     # External communication (3 modules)
+│   ├── api_integration.py                # Api Integration
+│   ├── notifications.py                # Notifications
+│   ├── remote_control.py                # Remote Control
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+├── cpu/                     # CPU monitoring (3 modules)
+│   ├── cpu_usage.py                # Usage percentage
+│   ├── cpuspeed.py                # Clock speed monitoring
+│   ├── cputemp.py                # Temperature monitoring
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+├── development/                     # Development tools (2 modules)
+│   ├── build_monitoring.py                # Build Monitoring
+│   ├── code_analysis.py                # Code Analysis
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+├── environment/                     # Hardware environment (3 modules)
+│   ├── audio_devices.py                # Audio Devices
+│   ├── screen_info.py                # Screen Info
+│   ├── usb_devices.py                # Usb Devices
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+├── files/                     # File system operations (6 modules)
+│   ├── directory_ops.py                # Directory Ops
+│   ├── file_copy.py                # File Copy
+│   ├── file_create.py                # File Create
+│   ├── file_delete.py                # File Delete
+│   ├── file_rename.py                # File Rename
+│   ├── file_search.py                # File Search
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+├── gaming/                     # Gaming automation (3 modules)
+│   ├── game_automation.py                # Game Automation
+│   ├── game_detection.py                # Game Detection
+│   ├── performance_optimization.py                # Performance Optimization
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+├── gpu/                     # GPU monitoring (3 modules)
+│   ├── gpu_usage.py                # GPU usage/memory
+│   ├── gpuspeed.py                # GPU clock speed
+│   ├── gputemp.py                # GPU temperature
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+├── health/                     # System health & diagnostics (2 modules)
+│   ├── maintenance_scheduler.py                # Maintenance Scheduler
+│   ├── system_diagnostics.py                # System Diagnostics
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+├── input/                     # User input tracking (3 modules)
+│   ├── clipboard_stats.py                # Clipboard Stats
+│   ├── keyboard_stats.py                # Keyboard Stats
+│   ├── mouse_stats.py                # Mouse Stats
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+├── memory/                     # Memory monitoring (3 modules)
+│   ├── memfree.py                # Available memory
+│   ├── memtotal.py                # Total memory
+│   ├── memusage.py                # Memory usage percentage
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+├── ml/                     # Machine Learning (6 modules)
+│   ├── anomaly_detection.py                # ML-based anomaly detection
+│   ├── behavioral_modeling.py                # User behavior prediction
+│   ├── feature_engineering.py                # Advanced feature extraction
+│   ├── model_training.py                # ML training pipeline
+│   ├── neural_networks.py                # Deep learning infrastructure
+│   ├── performance_prediction.py                # System performance forecasting
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+├── network/                     # Network monitoring (3 modules)
+│   ├── net_latency.py                # Net Latency
+│   ├── net_speed.py                # Net Speed
+│   ├── net_usage.py                # Net Usage
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+├── performance/                     # Performance analysis (3 modules)
+│   ├── boot_time.py                # Boot Time
+│   ├── resource_alerts.py                # Resource Alerts
+│   ├── startup_programs.py                # Startup Programs
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+├── power/                     # Power management (3 modules)
+│   ├── battery_status.py                # Battery Status
+│   ├── energy_usage.py                # Energy Usage
+│   ├── power_plan.py                # Power Plan
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+├── productivity/                     # Productivity tracking (2 modules)
+│   ├── focus_assistant.py                # Focus Assistant
+│   ├── time_tracking.py                # Time Tracking
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+├── security/                     # Security monitoring (3 modules)
+│   ├── firewall_status.py                # Firewall Status
+│   ├── login_attempts.py                # Login Attempts
+│   ├── open_ports.py                # Open Ports
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+├── service/                     # Background services (3 modules)
+│   ├── background_monitor.py                # Continuous system monitoring
+│   ├── continuous_learning.py                # Always-on ML learning
+│   ├── system_service.py                # Service management and control
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+├── storage/                     # Storage monitoring (4 modules)
+│   ├── disk_free.py                # Disk Free
+│   ├── disk_io.py                # Disk Io
+│   ├── disk_total.py                # Disk Total
+│   ├── disk_usage.py                # Disk Usage
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+├── system/                     # System information (4 modules)
+│   ├── os_info.py                # Os Info
+│   ├── processes.py                # Processes
+│   ├── uptime.py                # Uptime
+│   ├── user_sessions.py                # User Sessions
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+├── system_control/                     # System control operations (7 modules)
+│   ├── environment_vars.py                # Environment Vars
+│   ├── process_control.py                # Process Control
+│   ├── process_manager.py                # Process Manager
+│   ├── registry_ops.py                # Registry Ops
+│   ├── scheduled_tasks.py                # Scheduled Tasks
+│   ├── service_control.py                # Service Control
+│   ├── service_manager.py                # Service Manager
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+├── visual/                     # Visual analysis (3 modules)
+│   ├── ocr_analysis.py                # Ocr Analysis
+│   ├── screen_capture.py                # Screen Capture
+│   ├── ui_detection.py                # Ui Detection
+│   ├── aggregator.py           # Auto-generated
+│   └── config.json             # Auto-generated
+└── __init__.py
+
+build_aggregators.py       # Auto-generates all aggregators
+main_aggregator.py         # Master controller
+global_config.json         # System-wide settings
+update_structure.py        # Auto-update structure file
+
+## Usage Examples
+```bash
+# Monitor everything
+python main_aggregator.py all
+
+# Specific categories
+python main_aggregator.py detailed cpu memory audio ai
+
+# List all categories
+python main_aggregator.py list
+
+# Individual category
+python -m modes.audio.aggregator detailed
+```
+
+## Auto-Update System
+This structure file is automatically updated when:
+- New modules are added to any category
+- New categories are created
+- Modules are renamed or moved
+- Run: python update_structure.py
+
+Last updated: 2025-08-15 23:55:21

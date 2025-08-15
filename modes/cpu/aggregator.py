@@ -14,7 +14,6 @@ def run_mode(mode_name="all"):
     """Run specified mode for cpu monitoring"""
     if mode_name not in MODES:
         raise ValueError(f"Unknown mode: {mode_name}. Available: {list(MODES.keys())}")
-    
     results = {}
     for module_name in MODES[mode_name]:
         try:
@@ -33,7 +32,6 @@ def run_mode(mode_name="all"):
                     results[module_name] = result
         except Exception as e:
             results[module_name] = {"error": f"Exception: {e}"}
-    
     return results
 
 def list_modes():

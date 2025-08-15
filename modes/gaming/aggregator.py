@@ -14,24 +14,24 @@ def run_mode(mode_name="all"):
     """Run specified mode for gaming monitoring"""
     if mode_name not in MODES:
         raise ValueError(f"Unknown mode: {mode_name}. Available: {list(MODES.keys())}")
-    
     results = {}
     for module_name in MODES[mode_name]:
         try:
             mod = importlib.import_module(f".{module_name}", __package__)
-            # Find the main function (look for get_* functions first, then others)
             all_funcs = [f for f in dir(mod) if not f.startswith("_") and callable(getattr(mod, f))]
-            # Prioritize get_* functions, exclude common imports
             excluded = {'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}
             funcs = [f for f in all_funcs if f.startswith('get_') and f not in excluded]
             if not funcs:
                 funcs = [f for f in all_funcs if f not in excluded and not f[0].isupper()]
             if funcs:
                 func = getattr(mod, funcs[0])
-                results[module_name] = func()
+                result = func()
+                if result is None:
+                    results[module_name] = {"error": "Module returned None"}
+                else:
+                    results[module_name] = result
         except Exception as e:
-            results[module_name] = f"Error: {e}"
-    
+            results[module_name] = {"error": f"Exception: {e}"}
     return results
 
 def list_modes():
