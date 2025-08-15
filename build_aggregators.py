@@ -6,7 +6,9 @@ Scans modes/<category>/ folders, detects .py mini-modules, and creates:
 - config.json per category (with default 'all' mode)
 """
 
+import os
 import json
+import importlib
 from pathlib import Path
 
 BASE_DIR = Path(__file__).parent / "modes"
@@ -55,11 +57,14 @@ def run_mode(mode_name="all"):
     """Run specified mode for {category} monitoring"""
     if mode_name not in MODES:
         raise ValueError(f"Unknown mode: {{mode_name}}. Available: {{list(MODES.keys())}}")
+    
     results = {{}}
     for module_name in MODES[mode_name]:
         try:
             mod = importlib.import_module(f".{{module_name}}", __package__)
+            # Find the main function (look for get_* functions first, then others)
             all_funcs = [f for f in dir(mod) if not f.startswith("_") and callable(getattr(mod, f))]
+            # Prioritize get_* functions, exclude common imports
             excluded = {{'Path', 'datetime', 'os', 'sys', 'json', 'time', 'subprocess', 'platform', 'shutil'}}
             funcs = [f for f in all_funcs if f.startswith('get_') and f not in excluded]
             if not funcs:
