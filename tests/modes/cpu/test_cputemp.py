@@ -11,25 +11,21 @@ class TestCpuTemp(unittest.TestCase):
 
     def test_get_cpu_temp_structure(self):
         """
-        Test the structure of the dictionary returned by get_cpu_temp.
+        Test the structure of the dictionary returned by get_cpu_temp, including fallback to py_cpuinfo.
         """
         temp_data = get_cpu_temp()
         if "error" in temp_data:
-            # If there's an error, it should be a string
             self.assertIsInstance(temp_data["error"], str)
         else:
-            # If no error, check for the expected keys
             self.assertIn("temp_celsius", temp_data)
-            self.assertIn("high_threshold", temp_data)
-            self.assertIn("critical_threshold", temp_data)
-
-            # Check the types of the values
             self.assertIsInstance(temp_data["temp_celsius"], (int, float))
-            # Thresholds can be None, so we check for that possibility
-            if temp_data["high_threshold"] is not None:
-                self.assertIsInstance(temp_data["high_threshold"], (int, float))
-            if temp_data["critical_threshold"] is not None:
-                self.assertIsInstance(temp_data["critical_threshold"], (int, float))
+            # If thresholds are present, check their types
+            if "high_threshold" in temp_data:
+                if temp_data["high_threshold"] is not None:
+                    self.assertIsInstance(temp_data["high_threshold"], (int, float))
+            if "critical_threshold" in temp_data:
+                if temp_data["critical_threshold"] is not None:
+                    self.assertIsInstance(temp_data["critical_threshold"], (int, float))
 
 if __name__ == '__main__':
     unittest.main()
