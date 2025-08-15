@@ -10,10 +10,11 @@ import os
 import json
 import importlib
 import sys
+from pathlib import Path
 
 sys.path.append("scripts")
-from scripts/update_structure import update_structure_file
-from pathlib import Path
+from update_structure import update_structure_file
+
 
 BASE_DIR = Path(__file__).parent / "modes"
 
