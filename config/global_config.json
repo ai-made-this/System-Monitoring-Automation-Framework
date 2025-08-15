@@ -1,0 +1,20 @@
+{
+  "refresh_interval": 1,
+  "units": {
+    "temperature": "celsius",
+    "memory": "gb",
+    "storage": "gb",
+    "network": "mbps"
+  },
+  "thresholds": {
+    "cpu_temp_warning": 70,
+    "cpu_temp_critical": 85,
+    "memory_usage_warning": 80,
+    "disk_usage_warning": 85
+  },
+  "logging": {
+    "enabled": true,
+    "level": "info",
+    "file": "system_monitor.log"
+  }
+}
