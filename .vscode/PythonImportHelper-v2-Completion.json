@@ -2869,7 +2869,7 @@
         "kind": 2,
         "importPath": "modes.cpu.cputemp",
         "description": "modes.cpu.cputemp",
-        "peekOfCode": "def get_cpu_temp():\n    \"\"\"Get CPU temperature in Celsius\"\"\"\n    try:\n        temps = psutil.sensors_temperatures()\n        # Prioritize 'coretemp' (common on Linux) and average the readings.\n        if temps and 'coretemp' in temps and temps['coretemp']:\n            core_temps = temps['coretemp']\n            avg_temp = sum(t.current for t in core_temps) / len(core_temps)\n            # High/critical thresholds are often the same across a package.\n            high_thresh = core_temps[0].high",
+        "peekOfCode": "def get_cpu_temp():\n    \"\"\"Get CPU temperature in Celsius\"\"\"\n    try:\n        temps = psutil.sensors_temperatures()\n        # Prioritize 'coretemp' (common on Linux) and average the readings.\n        if temps and 'coretemp' in temps and temps['coretemp']:\n            core_temps = temps['coretemp']\n            avg_temp = sum(t.current for t in core_temps) / len(core_temps)\n            high_thresh = core_temps[0].high\n            crit_thresh = core_temps[0].critical",
         "detail": "modes.cpu.cputemp",
         "documentation": {}
     },

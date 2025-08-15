@@ -31,3 +31,6 @@ flake8>=6.0.0
 # Note: Many dependencies are commented out as they require
 # platform-specific installation and configuration.
 # Uncomment and install as needed for full functionality.
+
+# CPU temperature (cross-platform)
+py-cpuinfo
