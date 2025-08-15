@@ -1376,6 +1376,46 @@
         "documentation": {}
     },
     {
+        "label": "aggregator",
+        "importPath": "modes.network",
+        "description": "modes.network",
+        "isExtraImport": true,
+        "detail": "modes.network",
+        "documentation": {}
+    },
+    {
+        "label": "net_latency",
+        "importPath": "modes.network",
+        "description": "modes.network",
+        "isExtraImport": true,
+        "detail": "modes.network",
+        "documentation": {}
+    },
+    {
+        "label": "net_speed",
+        "importPath": "modes.network",
+        "description": "modes.network",
+        "isExtraImport": true,
+        "detail": "modes.network",
+        "documentation": {}
+    },
+    {
+        "label": "net_speedtest",
+        "importPath": "modes.network",
+        "description": "modes.network",
+        "isExtraImport": true,
+        "detail": "modes.network",
+        "documentation": {}
+    },
+    {
+        "label": "net_usage",
+        "importPath": "modes.network",
+        "description": "modes.network",
+        "isExtraImport": true,
+        "detail": "modes.network",
+        "documentation": {}
+    },
+    {
         "label": "Tee",
         "kind": 6,
         "importPath": ".venv.Scripts.pywin32_postinstall",
@@ -5396,6 +5436,51 @@
         "description": "tests.modes.gpu.test_gpu_usage",
         "peekOfCode": "class TestGPUUsage(unittest.TestCase):\n    def test_gpu_usage_output(self):\n        result = gpu_usage.get_gpu_usage()\n        self.assertIsInstance(result, dict)\n        self.assertIn('gpu_usage', result)\nif __name__ == \"__main__\":\n    unittest.main()",
         "detail": "tests.modes.gpu.test_gpu_usage",
+        "documentation": {}
+    },
+    {
+        "label": "TestNetworkAggregator",
+        "kind": 6,
+        "importPath": "tests.modes.network.test_aggregator",
+        "description": "tests.modes.network.test_aggregator",
+        "peekOfCode": "class TestNetworkAggregator(unittest.TestCase):\n    def test_aggregator_output(self):\n        result = aggregator.aggregate_network_data()\n        self.assertIsInstance(result, dict)\nif __name__ == \"__main__\":\n    unittest.main()",
+        "detail": "tests.modes.network.test_aggregator",
+        "documentation": {}
+    },
+    {
+        "label": "TestNetLatency",
+        "kind": 6,
+        "importPath": "tests.modes.network.test_net_latency",
+        "description": "tests.modes.network.test_net_latency",
+        "peekOfCode": "class TestNetLatency(unittest.TestCase):\n    def test_net_latency_output(self):\n        result = net_latency.get_net_latency()\n        self.assertIsInstance(result, dict)\n        self.assertIn('latency_ms', result)\nif __name__ == \"__main__\":\n    unittest.main()",
+        "detail": "tests.modes.network.test_net_latency",
+        "documentation": {}
+    },
+    {
+        "label": "TestNetSpeed",
+        "kind": 6,
+        "importPath": "tests.modes.network.test_net_speed",
+        "description": "tests.modes.network.test_net_speed",
+        "peekOfCode": "class TestNetSpeed(unittest.TestCase):\n    def test_net_speed_output(self):\n        result = net_speed.get_net_speed()\n        self.assertIsInstance(result, dict)\n        self.assertIn('upload_mbps', result)\n        self.assertIn('download_mbps', result)\nif __name__ == \"__main__\":\n    unittest.main()",
+        "detail": "tests.modes.network.test_net_speed",
+        "documentation": {}
+    },
+    {
+        "label": "TestNetSpeedtest",
+        "kind": 6,
+        "importPath": "tests.modes.network.test_net_speedtest",
+        "description": "tests.modes.network.test_net_speedtest",
+        "peekOfCode": "class TestNetSpeedtest(unittest.TestCase):\n    def test_net_speedtest_output(self):\n        result = net_speedtest.get_net_speedtest()\n        self.assertIsInstance(result, dict)\n        self.assertIn('download_mbps', result)\n        self.assertIn('upload_mbps', result)\n        self.assertIn('ping_ms', result)\nif __name__ == \"__main__\":\n    unittest.main()",
+        "detail": "tests.modes.network.test_net_speedtest",
+        "documentation": {}
+    },
+    {
+        "label": "TestNetUsage",
+        "kind": 6,
+        "importPath": "tests.modes.network.test_net_usage",
+        "description": "tests.modes.network.test_net_usage",
+        "peekOfCode": "class TestNetUsage(unittest.TestCase):\n    def test_net_usage_output(self):\n        result = net_usage.get_net_usage()\n        self.assertIsInstance(result, dict)\n        self.assertIn('total_usage', result)\n        self.assertIn('interfaces', result)\nif __name__ == \"__main__\":\n    unittest.main()",
+        "detail": "tests.modes.network.test_net_usage",
         "documentation": {}
     },
     {
