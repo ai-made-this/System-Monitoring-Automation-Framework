@@ -1344,6 +1344,38 @@
         "documentation": {}
     },
     {
+        "label": "aggregator",
+        "importPath": "modes.gpu",
+        "description": "modes.gpu",
+        "isExtraImport": true,
+        "detail": "modes.gpu",
+        "documentation": {}
+    },
+    {
+        "label": "gpuspeed",
+        "importPath": "modes.gpu",
+        "description": "modes.gpu",
+        "isExtraImport": true,
+        "detail": "modes.gpu",
+        "documentation": {}
+    },
+    {
+        "label": "gputemp",
+        "importPath": "modes.gpu",
+        "description": "modes.gpu",
+        "isExtraImport": true,
+        "detail": "modes.gpu",
+        "documentation": {}
+    },
+    {
+        "label": "gpu_usage",
+        "importPath": "modes.gpu",
+        "description": "modes.gpu",
+        "isExtraImport": true,
+        "detail": "modes.gpu",
+        "documentation": {}
+    },
+    {
         "label": "Tee",
         "kind": 6,
         "importPath": ".venv.Scripts.pywin32_postinstall",
@@ -5328,6 +5360,42 @@
         "description": "tests.modes.cpu.test_cpu_usage",
         "peekOfCode": "class TestCpuUsage(unittest.TestCase):\n    def test_get_cpu_usage_structure_and_values(self):\n        \"\"\"\n        Test the structure and values of the dictionary returned by get_cpu_usage.\n        Handles None and error cases for Pylance compatibility.\n        \"\"\"\n        usage_data = get_cpu_usage()\n        self.assertIsInstance(usage_data, dict)\n        if usage_data is None:\n            self.fail(\"get_cpu_usage() returned None\")",
         "detail": "tests.modes.cpu.test_cpu_usage",
+        "documentation": {}
+    },
+    {
+        "label": "TestGPUAggregator",
+        "kind": 6,
+        "importPath": "tests.modes.gpu.test_aggregator",
+        "description": "tests.modes.gpu.test_aggregator",
+        "peekOfCode": "class TestGPUAggregator(unittest.TestCase):\n    def test_aggregator_output(self):\n        result = aggregator.aggregate_gpu_data()\n        self.assertIsInstance(result, dict)\nif __name__ == \"__main__\":\n    unittest.main()",
+        "detail": "tests.modes.gpu.test_aggregator",
+        "documentation": {}
+    },
+    {
+        "label": "TestGPUSpeed",
+        "kind": 6,
+        "importPath": "tests.modes.gpu.test_gpuspeed",
+        "description": "tests.modes.gpu.test_gpuspeed",
+        "peekOfCode": "class TestGPUSpeed(unittest.TestCase):\n    def test_gpu_speed_output(self):\n        result = gpuspeed.get_gpu_speed()\n        self.assertIsInstance(result, dict)\n        self.assertIn('gpu_speed', result)\nif __name__ == \"__main__\":\n    unittest.main()",
+        "detail": "tests.modes.gpu.test_gpuspeed",
+        "documentation": {}
+    },
+    {
+        "label": "TestGPUTemp",
+        "kind": 6,
+        "importPath": "tests.modes.gpu.test_gputemp",
+        "description": "tests.modes.gpu.test_gputemp",
+        "peekOfCode": "class TestGPUTemp(unittest.TestCase):\n    def test_gpu_temperature_output(self):\n        result = gputemp.get_gpu_temperature()\n        self.assertIsInstance(result, dict)\n        self.assertIn('gpu_temperature', result)\nif __name__ == \"__main__\":\n    unittest.main()",
+        "detail": "tests.modes.gpu.test_gputemp",
+        "documentation": {}
+    },
+    {
+        "label": "TestGPUUsage",
+        "kind": 6,
+        "importPath": "tests.modes.gpu.test_gpu_usage",
+        "description": "tests.modes.gpu.test_gpu_usage",
+        "peekOfCode": "class TestGPUUsage(unittest.TestCase):\n    def test_gpu_usage_output(self):\n        result = gpu_usage.get_gpu_usage()\n        self.assertIsInstance(result, dict)\n        self.assertIn('gpu_usage', result)\nif __name__ == \"__main__\":\n    unittest.main()",
+        "detail": "tests.modes.gpu.test_gpu_usage",
         "documentation": {}
     },
     {
